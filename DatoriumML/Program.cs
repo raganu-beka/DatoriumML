@@ -10,9 +10,21 @@ string _predictSingleImage = Path.Combine(_imagesFolder, "toaster3.jpg");
 string _inceptionTensorFlowModel = Path.Combine(_assetsPath, "inception", "tensorflow_inception_graph.pb");
 
 MLContext mlContext = new MLContext();
+ITransformer model = GenerateModel(mlContext);
+ClassifySingleImage(mlContext, model);
+
 
 void ClassifySingleImage(MLContext mlContext, ITransformer model)
 {
+    var imageData = new ImageData()
+    {
+        ImagePath = _predictSingleImage
+    };
+
+    var predictor = mlContext.Model.CreatePredictionEngine<ImageData, ImagePrediction>(model);
+    var prediction = predictor.Predict(imageData);
+
+    Console.WriteLine($"Image: {Path.GetFileName(imageData.ImagePath)} predicted as: {prediction.PredictedLabelValue} with score: {prediction.Score?.Max()} ");
 }
 
 
