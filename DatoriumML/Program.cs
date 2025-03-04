@@ -6,7 +6,7 @@ string _assetsPath = Path.Combine(Environment.CurrentDirectory, "Prerequisites/a
 string _imagesFolder = Path.Combine(_assetsPath, "images");
 string _trainTagsTsv = Path.Combine(_imagesFolder, "tags.tsv");
 string _testTagsTsv = Path.Combine(_imagesFolder, "test-tags.tsv");
-string _predictSingleImage = Path.Combine(_imagesFolder, "toaster3.jpg");
+string _predictSingleImage = Path.Combine(_imagesFolder, "banana.png");
 string _inceptionTensorFlowModel = Path.Combine(_assetsPath, "inception", "tensorflow_inception_graph.pb");
 
 MLContext mlContext = new MLContext();
