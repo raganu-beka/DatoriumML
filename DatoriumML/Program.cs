@@ -1,6 +1,6 @@
-﻿using DatoriumML;
-using Microsoft.ML;
+﻿using Microsoft.ML;
 using Microsoft.ML.Data;
+using DatoriumML;
 
 string _assetsPath = Path.Combine(Environment.CurrentDirectory, "Prerequisites/assets");
 string _imagesFolder = Path.Combine(_assetsPath, "images");
@@ -10,6 +10,16 @@ string _predictSingleImage = Path.Combine(_imagesFolder, "toaster3.jpg");
 string _inceptionTensorFlowModel = Path.Combine(_assetsPath, "inception", "tensorflow_inception_graph.pb");
 
 MLContext mlContext = new MLContext();
+
+void ClassifySingleImage(MLContext mlContext, ITransformer model)
+{
+}
+
+//ITransformer GenerateModel(MLContext mLContext)
+//{
+//    IEstimator<ITransformer> pipeline = mlContext.Transforms.LoadImages
+
+//}
 
 void DisplayResult(IEnumerable<ImagePrediction> predictions)
 {
